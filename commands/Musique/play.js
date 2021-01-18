@@ -2,6 +2,7 @@ const Command = require("../../modules/Command.js");
 const ytdl = require("ytdl-core");
 const ytdlDiscord = require("ytdl-core-discord");
 const { Util } = require("discord.js");
+const ffmpeg = require("ffmpeg")
 
 class Play extends Command {
   constructor(client) {
@@ -24,8 +25,8 @@ class Play extends Command {
     const songInfo = await ytdl.getInfo(args[0]);
     const song = {
       id: songInfo.video_id,
-      title: Util.escapeMarkdown(songInfo.title),
-      url: songInfo.video_url
+      title: songInfo.title,
+      url: args[0]
     };
 
     if (serverQueue) {
@@ -53,6 +54,8 @@ class Play extends Command {
         message.client.queue.delete(message.guild.id);
         return;
       }
+
+
 
       const dispatcher = queue.connection
         .playOpusStream(await ytdlDiscord(song.url), { passes: 3 })
