@@ -1,6 +1,6 @@
 const config = {
   defaultSettings: {
-    prefix: "&",
+    prefix: ",",
     modLogChannel: "silent-logs",
     modRole: "Duelist",
     adminRole: "Master",
