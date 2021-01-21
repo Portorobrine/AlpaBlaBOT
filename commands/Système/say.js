@@ -7,7 +7,8 @@ class Say extends Command {
       description: "Dire des trucs.",
       usage: "say",
       category: "Système",
-      permLevel: "Duelist"
+     permLevel: "Blabla Boss",
+     aliases: ["s"]
     });
   }
 

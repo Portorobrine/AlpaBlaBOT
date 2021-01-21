@@ -39,6 +39,7 @@
     "readline-sync": "^1.4.9",
     "snekfetch": "^3.5.8",
     "ytdl-core": "^4.4.3",
-    "ytdl-core-discord": "^1.2.5"
+    "ytdl-core-discord": "^1.2.5",
+    "ytsr": "^3.2.1"
   }
 }

@@ -7,13 +7,13 @@ class Clear extends Command {
       description: "Nettoyer un nombre de messages spécifiés.",
       usage: "clear",
       category: "Système",
-      permLevel: "Duelist"
+      permLevel: "Blabla Boss"
     });
   }
 
   async run(message, args) {
     try {
-      message.channel.bulkDelete(args[0]).then(() => {
+      message.channel.bulkDelete(parseInt(args[0]) + 1).then(() => {
         message.channel
           .send(`J'ai supprimé ***${args[0]} messages*** pour vous !`)
           .then(message => message.delete(5000));

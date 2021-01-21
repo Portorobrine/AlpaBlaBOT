@@ -1,9 +1,9 @@
 const config = {
   defaultSettings: {
-    prefix: ",",
+    prefix: "&",
     modLogChannel: "silent-logs",
     modRole: "Duelist",
-    adminRole: "Master",
+    adminRole: "Blabla Boss",
     systemNotice: true
   },
   permLevels: [
@@ -24,7 +24,7 @@ const config = {
     },
     {
       level: 2,
-      name: "Master",
+      name: "Blabla Boss",
       check: message => {
         try {
           const adminRole = message.guild.roles.find(
@@ -39,7 +39,7 @@ const config = {
     },
     {
       level: 3,
-      name: "Flareon",
+      name: "Le BEST des BESTs",
       check: message => message.client.appInfo.owner.id === message.author.id
     }
   ]

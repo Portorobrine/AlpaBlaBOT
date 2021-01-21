@@ -4,6 +4,7 @@ const readdir = promisify(require("fs").readdir);
 const Enmap = require("enmap");
 const klaw = require("klaw");
 const path = require("path");
+const { token } = require("./token.json")
 require("dotenv").config();
 
 class Flareon extends Client {
@@ -136,7 +137,7 @@ const init = async () => {
     client.levelCache[thisLevel.name] = thisLevel.level;
   }
 
-  client.login("NjgzMzMxNzI5NTUyODM0NTg2.XlqARA.w5Jw1EsmSD7mYql1iqlFdlZfZdI");
+  client.login(token);
 };
 
 init();

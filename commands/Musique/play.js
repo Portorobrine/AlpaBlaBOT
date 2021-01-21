@@ -3,6 +3,8 @@ const ytdl = require("ytdl-core");
 const ytdlDiscord = require("ytdl-core-discord");
 const { Util } = require("discord.js");
 const ffmpeg = require("ffmpeg")
+const ytsr = require('ytsr');
+
 
 class Play extends Command {
   constructor(client) {
@@ -10,9 +12,12 @@ class Play extends Command {
       name: "play",
       category: "Musique",
       description: "Jouer et ajouter de la musique.",
-      usage: "play"
+      usage: "play",
+      aliases: ["p"]
     });
   }
+
+
 
   async run(message, args) {
     const { voiceChannel } = message.member;
@@ -21,14 +26,19 @@ class Play extends Command {
         "Vous devez être dans un salon vocal pour utiliser cette commande !"
       );
 
-    const serverQueue = message.client.queue.get(message.guild.id);
-    const songInfo = await ytdl.getInfo(args[0]);
-    const song = {
-      id: songInfo.video_id,
-      title: songInfo.title,
-      url: args[0]
-    };
 
+    const serverQueue = message.client.queue.get(message.guild.id);
+    const options = {
+      limit: 1,
+      hl: 'fr'
+    }
+
+    const songInfo = await ytsr(args.join(" "), options);
+    const song = {
+      id: songInfo.items[0].id,
+      title: songInfo.items[0].title,
+      url: songInfo.items[0].url,
+    };
     if (serverQueue) {
       serverQueue.songs.push(song);
       return message.channel.send(

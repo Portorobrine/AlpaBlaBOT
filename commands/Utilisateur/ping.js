@@ -14,8 +14,8 @@ class Ping extends Command {
     try {
       const msg = await message.channel.send("Ping!");
       msg.edit(
-        `Pong !\n Latence bot: ${msg.createdTimestamp -
-          message.createdTimestamp}ms.\n API: ${Math.round(
+        `Pong !\nLatence bot: ${msg.createdTimestamp -
+          message.createdTimestamp}ms.\nAPI: ${Math.round(
           this.client.ping
         )}ms.`
       );

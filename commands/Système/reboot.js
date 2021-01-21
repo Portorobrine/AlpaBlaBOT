@@ -8,7 +8,7 @@ class Reboot extends Command {
       usage: "reboot",
       guildOnly: true,
       category: "Système",
-      permLevel: "Flareon"
+      permLevel: "Blabla Boss"
     });
   }
 

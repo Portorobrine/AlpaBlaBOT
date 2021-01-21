@@ -11,13 +11,13 @@ module.exports = class {
       this.client.appInfo = await this.client.fetchApplication();
     }, 60000);
 
-    this.client.user.setActivity("kesta");
+    this.client.user.setActivity("lettre magique &help");
 
     const channel = this.client.channels.get("683731000559403008");
     channel.send(":gear: Le bot est redémarré !");
 
     this.client.logger.log(
-      `Flareon est prêt à espionner ${
+      `AlpablaBOT est prêt à espionner ${
         this.client.users.size
       } utilisateurs sur ${this.client.channels.size} salons.`,
       "ready"
